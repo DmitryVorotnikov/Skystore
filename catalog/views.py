@@ -1,9 +1,9 @@
 from django.shortcuts import render
 
 
-def home():
-    pass
+def home(request):
+    return render(request, 'catalog/home.html')
 
 
-def contacts():
-    pass
+def contacts(request):
+    return render(request, 'catalog/contacts.html')
