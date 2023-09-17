@@ -1,0 +1,28 @@
+[
+  {
+    "model": "catalog.product",
+    "pk": 1,
+    "fields": {
+      "name": "test_product_2",
+      "description": "default_description_2",
+      "image": "",
+      "category": 1,
+      "price": 1234,
+      "creation_date": "2023-09-17T13:02:07.080Z",
+      "last_modification_date": "2023-09-17T13:02:07.080Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 2,
+    "fields": {
+      "name": "test_product_3333",
+      "description": "default_description",
+      "image": "",
+      "category": 1,
+      "price": 1234,
+      "creation_date": "2023-09-17T13:13:33.939Z",
+      "last_modification_date": "2023-09-17T13:13:33.939Z"
+    }
+  }
+]
