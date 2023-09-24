@@ -26,7 +26,7 @@ class Category(models.Model):
     description = models.TextField(default='default_description', verbose_name='Описание')
 
     def __str__(self):
-        return f'Категория: {self.name}'
+        return f'{self.name}'
 
     class Meta:
         verbose_name = 'Категория'
