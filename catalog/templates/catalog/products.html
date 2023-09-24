@@ -14,13 +14,13 @@
                 <div class="card-header" style="height: 75px;">
                     <h4 class="my-0 font-weight-normal">{{ object.name }}</h4>
                 </div>
-                <div class="card-body d-flex flex-column">
+                <div class="card-body d-flex flex-column" style="height: 240px;">
                     <h1 class="card-title pricing-card-title">{{ object.price }}$</h1>
                     <div class="mt-auto">
                         <p class="card-title pricing-card-title" style="text-align: left;">{{ object.description|slice:":100" }}...</p>
                     </div>
                     <div class="mt-auto">
-                        <button type="button" class="btn btn-lg btn-block btn-outline-primary">Выбрать</button>
+                        <a href="{% url 'catalog:product_page' object.pk %}" class="btn btn-lg btn-block btn-outline-primary">Выбрать</a>
                     </div>
                 </div>
             </div>

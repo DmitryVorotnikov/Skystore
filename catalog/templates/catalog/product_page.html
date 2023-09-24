@@ -1,0 +1,21 @@
+{% extends 'catalog/base.html' %}
+{% load my_tags %}
+
+{% block content %}
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{ object.name }}</h5>
+            <p class="card-text">Категория: {{ object.category }}</p>
+            <p class="card-text">{{ object.description }}</p>
+            <p class="card-text">Цена: {{ object.price }}$</p>
+        </div>
+<!--        <img src="/media/{{ object.image }}" style="max-width: 100%; height: auto;" class="card-img-bottom">-->
+        <img src="{{ object.image|mymedia }}" style="max-width: 100%; height: auto;" class="card-img-bottom">
+    </div>
+{% endblock %}
+
+
+
+
+    image = models.ImageField (upload_to='products/', verbose_name='Изображение', **NULLABLE)

@@ -30,3 +30,12 @@ def products(request):
     }
 
     return render(request, 'catalog/products.html', context)
+
+
+def product_page(request, pk):
+
+    context = {
+        'object': Product.objects.get(pk=pk)
+    }
+
+    return render(request, 'catalog/product_page.html', context)
