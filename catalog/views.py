@@ -10,7 +10,7 @@ def home(request):
         'object_list': category_list
     }
 
-    return render(request, 'catalog/base.html', context)
+    return render(request, 'catalog/home.html', context)
 
 
 def contacts(request):
