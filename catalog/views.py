@@ -1,5 +1,7 @@
 from django.shortcuts import render
-from django.views.generic import ListView, TemplateView, DetailView
+from django.urls import reverse_lazy
+from django.views.generic import ListView, TemplateView, DetailView, CreateView, UpdateView
+from pytils.translit import slugify
 
 from catalog.models import Category, Product, Article
 
@@ -36,3 +38,31 @@ class ProductDetailView(DetailView):
 
 class ArticleListView(ListView):
     model = Article
+
+
+class ArticleCreateView(CreateView):
+    model = Article
+    fields = ('title', 'content', 'preview', 'is_published',)
+    success_url = reverse_lazy('catalog:articles')
+
+    def form_valid(self, form):
+        if form.is_valid():
+            new_article = form.save()
+            new_article.slug = slugify(new_article.title)
+            new_article.save()
+
+        return super().form_valid(form)
+
+
+class ArticleUpdateView(UpdateView):
+    model = Article
+    fields = ('title', 'content', 'preview', 'is_published',)
+    success_url = reverse_lazy('catalog:articles')
+
+    def form_valid(self, form):
+        if form.is_valid():
+            new_article = form.save()
+            new_article.slug = slugify(new_article.title)
+            new_article.save()
+
+        return super().form_valid(form)
