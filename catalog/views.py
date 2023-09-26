@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, TemplateView
+from django.views.generic import ListView, TemplateView, DetailView
 
 from catalog.models import Category, Product
 
@@ -29,19 +29,6 @@ class ContactsTemplateView(TemplateView):
 class ProductListView(ListView):
     model = Product
 
-# def products(request):
-#     product_list = Product.objects.all()
-#
-#     context = {
-#         'object_list': product_list
-#     }
-#
-#     return render(request, 'catalog/product_list.html', context)
 
-
-def product_page(request, pk):
-    context = {
-        'object': Product.objects.get(pk=pk)
-    }
-
-    return render(request, 'catalog/product_page.html', context)
+class ProductDetailView(DetailView):
+    model = Product
