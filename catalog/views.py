@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView, TemplateView, DetailView
 
-from catalog.models import Category, Product
+from catalog.models import Category, Product, Article
 
 
 class CategoryListView(ListView):
@@ -32,3 +32,7 @@ class ProductListView(ListView):
 
 class ProductDetailView(DetailView):
     model = Product
+
+
+class ArticleListView(ListView):
+    model = Article
