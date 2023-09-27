@@ -13,7 +13,7 @@ urlpatterns = [
 
     path('articles/', ArticleListView.as_view(), name='articles'),
     path('create/', ArticleCreateView.as_view(), name='create'),
-    path('edit/', ArticleUpdateView.as_view(), name='edit'),
+    path('article/edit/<slug:slug>/', ArticleUpdateView.as_view(), name='article_edit'),
     path('articles/<slug:slug>/', ArticleDetailView.as_view(), name='article'),
-    path('articles/delete/<slug:slug>/', ArticleDeleteView.as_view(), name='article_delete'),
+    path('article/delete/<slug:slug>/', ArticleDeleteView.as_view(), name='article_delete'),
 ]
