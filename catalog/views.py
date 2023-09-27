@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import ListView, TemplateView, DetailView, CreateView, UpdateView
+from django.views.generic import ListView, TemplateView, DetailView, CreateView, UpdateView, DeleteView
 from pytils.translit import slugify
 
 from catalog.models import Category, Product, Article
@@ -70,3 +70,8 @@ class ArticleUpdateView(UpdateView):
 
 class ArticleDetailView(DetailView):
     model = Article
+
+
+class ArticleDeleteView(DeleteView):
+    model = Article
+    success_url = reverse_lazy('catalog:articles')
