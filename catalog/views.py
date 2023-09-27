@@ -66,3 +66,7 @@ class ArticleUpdateView(UpdateView):
             new_article.save()
 
         return super().form_valid(form)
+
+
+class ArticleDetailView(DetailView):
+    model = Article
