@@ -51,3 +51,17 @@ class Article(models.Model):
         verbose_name_plural = 'Статьи'
         ordering = ('id',)
 
+
+class Version(models.Model):
+    product = models.ForeignKey('Product', on_delete=models.CASCADE, verbose_name='Продукт', related_name='versions')
+    version_number = models.CharField(max_length=50, verbose_name='Номер версии')
+    name = models.CharField(max_length=150, verbose_name='Название версии')
+    is_active = models.BooleanField(default=False, verbose_name='Признак текущей версии')
+
+    def __str__(self):
+        return f'{self.name} {self.version_number}'
+
+    class Meta:
+        verbose_name = 'Версия'
+        verbose_name_plural = 'Версии'
+        ordering = ('id',)
