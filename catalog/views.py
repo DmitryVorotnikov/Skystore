@@ -92,3 +92,24 @@ class ArticleDetailView(DetailView):
 class ArticleDeleteView(DeleteView):
     model = Article
     success_url = reverse_lazy('catalog:articles')
+
+
+class ProductCreateView(CreateView):
+    model = Product
+    fields = ('name', 'description', 'category', 'price', 'image',)
+
+    def get_success_url(self):
+        return reverse('catalog:product_item', args=[self.object.pk])
+
+
+class ProductUpdateView(UpdateView):
+    model = Product
+    fields = ('name', 'description', 'category', 'price', 'image',)
+
+    def get_success_url(self):
+        return reverse('catalog:product_item', args=[self.kwargs.get('pk')])
+
+
+class ProductDeleteView(DeleteView):
+    model = Product
+    success_url = reverse_lazy('catalog:products')

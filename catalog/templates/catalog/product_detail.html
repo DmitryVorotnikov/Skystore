@@ -3,14 +3,29 @@
 
 {% block content %}
 <div class="container">
-    <div class="card">
-        <div class="card-body">
-            <h5 class="card-title">{{ object.name }}</h5>
-            <p class="card-text">Категория: {{ object.category }}</p>
-            <p class="card-text">{{ object.description }}</p>
-            <p class="card-text">Цена: {{ object.price }}$</p>
+    <div class="row-12">
+        <div class="col-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        <h5 class="card-title">{{ object.name }}</h5>
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Категория: {{ object.category }}</p>
+                    <p class="card-text">{{ object.description }}</p>
+                    <p class="card-text">Цена: {{ object.price }}$</p>
+                </div>
+                <!--        <img src="/media/{{ object.image }}" style="max-width: 100%; height: auto;" class="card-img-bottom">-->
+                <img src="{{ object.image|mymedia }}" style="max-width: 100%; height: auto;" class="card-img-bottom">
+                <div class="card-footer">
+                    <a class="btn btn-lg btn-primary" href="{% url 'catalog:product_edit' object.pk %}">Редактировать
+                        продукт</a>
+                    <a class="btn btn-lg btn-danger" href="{% url 'catalog:product_delete' object.pk %}">Удалить продукт</a>
+
+                </div>
+            </div>
         </div>
-<!--        <img src="/media/{{ object.image }}" style="max-width: 100%; height: auto;" class="card-img-bottom">-->
-        <img src="{{ object.image|mymedia }}" style="max-width: 100%; height: auto;" class="card-img-bottom">
     </div>
+</div>
 {% endblock %}
