@@ -3,6 +3,7 @@ from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, TemplateView, DetailView, CreateView, UpdateView, DeleteView
 from pytils.translit import slugify
 
+from catalog.forms import ProductForm
 from catalog.models import Category, Product, Article
 
 
@@ -96,7 +97,7 @@ class ArticleDeleteView(DeleteView):
 
 class ProductCreateView(CreateView):
     model = Product
-    fields = ('name', 'description', 'category', 'price', 'image',)
+    form_class = ProductForm
 
     def get_success_url(self):
         return reverse('catalog:product_item', args=[self.object.pk])
@@ -104,7 +105,7 @@ class ProductCreateView(CreateView):
 
 class ProductUpdateView(UpdateView):
     model = Product
-    fields = ('name', 'description', 'category', 'price', 'image',)
+    form_class = ProductForm
 
     def get_success_url(self):
         return reverse('catalog:product_item', args=[self.kwargs.get('pk')])
