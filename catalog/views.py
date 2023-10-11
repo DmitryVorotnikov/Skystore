@@ -105,31 +105,21 @@ class ProductCreateView(CreateView):
 
     def get_context_data(self, **kwargs):
         context_data = super().get_context_data(**kwargs)
-        print(f'1- {context_data}')
 
         VersionFormset = inlineformset_factory(Product, Version, form=VersionForm, extra=1)
-        print(f'2- {VersionFormset}')
         if self.request.method == 'POST':
             context_data['formset'] = VersionFormset(self.request.POST, self.request.FILES)
-            print(f"3- {context_data['formset']}")
-            print(f"3,5555- {self.request.POST}")
         else:
             context_data['formset'] = VersionFormset()
-            print(f"4- {context_data['formset']}")
 
         return context_data
 
     def form_valid(self, form):
         formset = self.get_context_data()['formset']
-        print(f'5- {formset}')
         self.object = form.save()
-        print(f'6- {self.object}')
-        print(f'7- {formset.is_valid()}')
         if formset.is_valid():
             formset.instance = self.object
-            print(f'8- {formset.instance}')
             formset.save()
-            print(f'9 - {formset}')
 
         return super().form_valid(form)
 
