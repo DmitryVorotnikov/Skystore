@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap5',
 
-    'catalog'
+    'catalog',
+    'users'
 ]
 
 MIDDLEWARE = [
@@ -137,6 +138,14 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+# Crispy forms
 
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+# User model
+
+AUTH_USER_MODEL = 'users.User'
+
+# Email data
+
