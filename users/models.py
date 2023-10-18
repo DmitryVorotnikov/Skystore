@@ -2,7 +2,7 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from catalog.models import NULLABLE
+NULLABLE = {'blank': True, 'null': True}
 
 
 class User(AbstractUser):
@@ -15,7 +15,6 @@ class User(AbstractUser):
     avatar = models.ImageField(_("Avatar"), upload_to='users/', **NULLABLE)
     need_generate = models.BooleanField(_("Need generate new password"), default=False)
     confirmation_token = models.CharField(max_length=100, verbose_name='Токен подтверждения', **NULLABLE)
-
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []

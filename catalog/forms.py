@@ -13,7 +13,7 @@ class StyleFormMixin():
 class ProductForm(StyleFormMixin, forms.ModelForm):
     class Meta:
         model = Product
-        exclude = ('creation_date', 'last_modification_date',)
+        exclude = ('creation_date', 'last_modification_date', 'owner_product',)
 
     def clean_text(self, field_name):
         cleaned_data = self.cleaned_data[field_name].lower()
