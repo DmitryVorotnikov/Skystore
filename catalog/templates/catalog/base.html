@@ -16,8 +16,7 @@
     <div class="container">
         <div class="row">
             <div class="col-3 col-md">
-                SkyStore
-                <small class="d-block mb-3 text-muted">&copy; {% now 'Y' %}</small>
+                <small class="d-block mb-3 text-muted">{{ user.email|default:"Вы не авторизованны" }}</small>
             </div>
             <div class="col-3 col-md">
                 <h5>Категории</h5>

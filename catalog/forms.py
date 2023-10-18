@@ -3,7 +3,14 @@ from django import forms
 from catalog.models import Product, Version
 
 
-class ProductForm(forms.ModelForm):
+class StyleFormMixin():
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'form-control'
+
+
+class ProductForm(StyleFormMixin, forms.ModelForm):
     class Meta:
         model = Product
         exclude = ('creation_date', 'last_modification_date',)
@@ -36,11 +43,6 @@ class ProductForm(forms.ModelForm):
 
     def clean_description(self):
         return self.clean_text('description')
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        for field_name, field in self.fields.items():
-            field.widget.attrs['class'] = 'form-control'
 
 
 class VersionForm(forms.ModelForm):
