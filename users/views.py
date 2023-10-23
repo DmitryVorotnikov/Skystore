@@ -43,7 +43,7 @@ class RegisterView(CreateView):
 class VerifyEmailView(RedirectView):
     # Устанавливает перенаправление как временное (а не постоянное)
     permanent = False
-    # Устанавливает сохрание параметров запроса и включение их в целевой URL после перенаправления
+    # Устанавливает сохранение параметров запроса и включение их в целевой URL после перенаправления
     query_string = True
 
     def get_redirect_url(self, *args, **kwargs):
