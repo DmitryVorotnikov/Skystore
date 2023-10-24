@@ -17,6 +17,8 @@ class Product(models.Model):
     owner_product = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT,
                                       verbose_name='Создатель продукта', **NULLABLE)
 
+    is_published = models.BooleanField(default=False, verbose_name='Признак публикации')
+
     def __str__(self):
         return f'{self.name}, {self.price}, {self.category}'
 
@@ -24,6 +26,13 @@ class Product(models.Model):
         verbose_name = 'Продукт'
         verbose_name_plural = 'Продукты'
         ordering = ('id',)
+        # Задаем новые права доступа (ко всей модели и всем полям модели)
+        permissions = [
+            (
+                'set_published',
+                'Can change is_published, description, category'
+            )
+        ]
 
 
 class Category(models.Model):

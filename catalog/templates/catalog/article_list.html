@@ -5,7 +5,9 @@
     <h1 class="display-4">Статьи</h1>
 </div>
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-left">
-    <a class="btn btn-lg btn-primary" style="margin-left: 102px;" href="{% url 'catalog:create' %}">Добавить статью</a>
+    {% if perms.catalog.add_article %}
+        <a class="btn btn-lg btn-primary" style="margin-left: 102px;" href="{% url 'catalog:create' %}">Добавить статью</a>
+    {% endif %}
 </div>
 
 <div class="container">

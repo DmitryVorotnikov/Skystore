@@ -20,9 +20,11 @@
                 <img src="{{ object.image|mymedia }}" style="max-width: 100%; height: auto;" class="card-img-bottom">
                 <div class="card-footer">
                     <small class="d-block mb-3 text-muted">{{ object.owner_product|default:"Создатель не известен" }}</small>
-                    {% if user.is_authenticated %}
+                    {% if perms.catalog.change_product %}
                         <a class="btn btn-lg btn-primary" href="{% url 'catalog:product_edit' object.pk %}">Редактировать
                         продукт</a>
+                    {% endif %}
+                    {% if perms.catalog.delete_product %}
                         <a class="btn btn-lg btn-danger" href="{% url 'catalog:product_delete' object.pk %}">Удалить продукт</a>
                     {% endif %}
                 </div>

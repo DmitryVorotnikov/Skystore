@@ -1,6 +1,8 @@
 import secrets
 import string
 
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.views import LogoutView
 from django.core.mail import send_mail
 from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView, UpdateView, RedirectView
@@ -8,6 +10,10 @@ from django.views.generic import CreateView, UpdateView, RedirectView
 from config import settings
 from users.forms import UserRegisterForm, UserProfileForm
 from users.models import User
+
+
+class LogoutUserView(LoginRequiredMixin, LogoutView):
+    pass
 
 
 class RegisterView(CreateView):
@@ -64,7 +70,7 @@ class VerifyEmailView(RedirectView):
             return reverse('users:login')
 
 
-class ProfileView(UpdateView):
+class ProfileView(LoginRequiredMixin, UpdateView):
     model = User
     form_class = UserProfileForm
     success_url = reverse_lazy('catalog:home')
