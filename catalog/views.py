@@ -25,9 +25,6 @@ class ContactsTemplateView(TemplateView):
             message = self.request.POST.get('message')
             print(f'You have new message from {name}, phone: {phone} message: {message}')
 
-        # Для добавления информации из БД в отображение контактов.
-        # context_data['object_list'] = Some_data_for_contacts.objects.all()
-
         return context_data
 
 
@@ -78,6 +75,7 @@ class ArticleCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView)
     def form_valid(self, form):
         if form.is_valid():
             new_article = form.save()
+            # Работа со слагом
             new_article.slug = slugify(new_article.title)
             new_article.save()
 
@@ -95,6 +93,7 @@ class ArticleUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView)
     def form_valid(self, form):
         if form.is_valid():
             new_article = form.save()
+            # Работа со слагом
             new_article.slug = slugify(new_article.title)
             new_article.save()
 
@@ -107,6 +106,7 @@ class ArticleDetailView(LoginRequiredMixin, DetailView):
     def get_object(self, queryset=None):
         self.object = super().get_object(queryset)
 
+        # Увеличение счетчика просмотров
         self.object.number_of_views += 1
         self.object.save()
 
@@ -142,6 +142,7 @@ class ProductCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView)
         formset = self.get_context_data()['formset']
         self.object = form.save()
 
+        # Присваиваем продукту в качестве владельца текущего пользователя.
         self.object.owner_product = self.request.user
         self.object = form.save()
 
@@ -198,6 +199,7 @@ class ProductUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView)
         formset = self.get_context_data()['formset']
         self.object = form.save()
 
+        # Присваиваем продукту в качестве владельца текущего пользователя.
         self.object.owner_product = self.request.user
         self.object = form.save()
 
