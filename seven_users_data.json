@@ -1,0 +1,156 @@
+[
+  {
+    "model": "users.user",
+    "pk": 20,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$pOS71ofFjywE4V55TQjDoY$JAlK39VOAOp88pNyCnG62CrJlaEOrLFJmPptUttCsMw=",
+      "last_login": "2023-10-24T06:08:41.681Z",
+      "is_superuser": true,
+      "first_name": "Admin",
+      "last_name": "Admin",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2023-10-24T04:01:36.622Z",
+      "email": "admin@gmail.com",
+      "phone_number": null,
+      "country": null,
+      "avatar": "",
+      "need_generate": false,
+      "confirmation_token": null,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 25,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$D9KbZjBpdT4eedTZKfnqXn$o/P+RHLhSVXOSolvk5faJ3foJmeJzo3TPTyqLfMnjUg=",
+      "last_login": "2023-10-24T06:05:12Z",
+      "is_superuser": false,
+      "first_name": "One",
+      "last_name": "Managerov",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2023-10-24T04:30:05Z",
+      "email": "mananger_one@gmail.com",
+      "phone_number": null,
+      "country": null,
+      "avatar": "",
+      "need_generate": false,
+      "confirmation_token": null,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 26,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$LiLdGNNbSqv2Abohwd6mGE$OdmctYLecxKRu4Vb3h8vZ860vcDNPwQMdVthMBR1dsI=",
+      "last_login": null,
+      "is_superuser": false,
+      "first_name": "Two",
+      "last_name": "Managerov",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2023-10-24T04:30:33Z",
+      "email": "mananger_two@gmail.com",
+      "phone_number": null,
+      "country": null,
+      "avatar": "",
+      "need_generate": false,
+      "confirmation_token": null,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 27,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$7Iv0iE3FAUAmbKmF4IDWFJ$W419h3hBpUer7ocnd0WQCAALHjRouHnoDKKvK5fvvNE=",
+      "last_login": "2023-10-24T05:27:48Z",
+      "is_superuser": false,
+      "first_name": "Three",
+      "last_name": "Managerov",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2023-10-24T04:32:16Z",
+      "email": "mananger_three@gmail.com",
+      "phone_number": null,
+      "country": null,
+      "avatar": "",
+      "need_generate": false,
+      "confirmation_token": null,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 28,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$PiggofIBFD6nsTNMuq0jfj$LJQiXLngjrTHLWqx9hnnZHWzYPVOmtTDx7s1gkFMi54=",
+      "last_login": null,
+      "is_superuser": false,
+      "first_name": "One",
+      "last_name": "Userov",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-10-24T04:37:04Z",
+      "email": "user__one@gmail.com",
+      "phone_number": null,
+      "country": null,
+      "avatar": "",
+      "need_generate": false,
+      "confirmation_token": null,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 29,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$gHdQ9DR6xbO6Sbo9AejpvV$O+rrdg0yoPeZFb4iE+j1Bf2LSIDoc9t4UbvVLPawVjc=",
+      "last_login": null,
+      "is_superuser": false,
+      "first_name": "Two",
+      "last_name": "Userov",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-10-24T04:37:23Z",
+      "email": "user__two@gmail.com",
+      "phone_number": null,
+      "country": null,
+      "avatar": "",
+      "need_generate": false,
+      "confirmation_token": null,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 30,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$mcq618P5LkTYVnSyDQgDR9$j/tKwwEXmkGS88mPn6lqkZAdV9GL7cnfV6j/DVkkP8U=",
+      "last_login": null,
+      "is_superuser": false,
+      "first_name": "Three",
+      "last_name": "Userov",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-10-24T04:38:57Z",
+      "email": "user__three@gmail.com",
+      "phone_number": null,
+      "country": null,
+      "avatar": "",
+      "need_generate": false,
+      "confirmation_token": null,
+      "groups": [],
+      "user_permissions": []
+    }
+  }
+]
