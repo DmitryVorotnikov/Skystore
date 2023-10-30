@@ -3,9 +3,10 @@ psycopg2
 pillow
 ipython
 pytils
-redis
 django-crispy-forms
 crispy-bootstrap5
+redis
+python-dotenv
 asgiref==3.7.2
 certifi==2023.5.7
 cffi==1.15.1
