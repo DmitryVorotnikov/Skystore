@@ -1,4 +1,6 @@
+from django.conf import settings
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.core.cache import cache
 from django.forms import inlineformset_factory
 from django.http import Http404
 from django.urls import reverse_lazy, reverse
@@ -7,10 +9,18 @@ from pytils.translit import slugify
 
 from catalog.forms import ProductForUserForm, ProductForManagerForm, VersionForm
 from catalog.models import Category, Product, Article, Version
+from catalog.services.view_services import get_cached_categories
 
 
 class CategoryListView(ListView):
     model = Category
+
+    def get_context_data(self, **kwargs):
+        context_data = super().get_context_data(**kwargs)
+
+        context_data['object_list'] = get_cached_categories()
+
+        return context_data
 
 
 class ContactsTemplateView(TemplateView):
