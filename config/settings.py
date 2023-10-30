@@ -49,6 +49,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'django.middleware.cache.UpdateCacheMiddleware',  # Кеширование всего сайта.
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -59,6 +61,8 @@ MIDDLEWARE = [
 
     # Для авто-перевода текста, через gettext_lazy
     'django.middleware.locale.LocaleMiddleware',
+
+    'django.middleware.cache.FetchFromCacheMiddleware'  # Кеширование всего сайта.
 ]
 
 ROOT_URLCONF = 'config.urls'
