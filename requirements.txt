@@ -3,6 +3,7 @@ psycopg2
 pillow
 ipython
 pytils
+redis
 django-crispy-forms
 crispy-bootstrap5
 asgiref==3.7.2

@@ -164,3 +164,14 @@ EMAIL_USE_SSL = True
 LOCALE_PATHS = (
     BASE_DIR / 'locale',
 )
+
+CACHE_ENABLED = True
+
+if CACHE_ENABLED:
+    CACHES = {
+        "default": {
+            "BACKEND": "django.core.cache.backends.redis.RedisCache",
+            "LOCATION": "redis://127.0.0.1:6379",
+            "TIMEOUT": 60,  # Время жизни кеша в секундах, по умолчанию
+        }
+    }
