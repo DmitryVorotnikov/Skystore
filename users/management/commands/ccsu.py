@@ -68,7 +68,7 @@ class Command(BaseCommand):
             else:
                 break
 
-        # Получение email через **options, либо его невидимый input (через getpass). Проверка и валидация.
+        # Получение password через **options, либо его невидимый input (через getpass). Проверка и валидация.
         # Get password from **options or through a hidden input (using getpass). Check and validate.
         if not user_creation_required:
             while True:
