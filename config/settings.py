@@ -172,6 +172,7 @@ LOCALE_PATHS = (
     BASE_DIR / 'locale',
 )
 
+# Cache
 CACHE_ENABLED = os.getenv('CACHE_ENABLED') == 'True'
 
 if CACHE_ENABLED:
