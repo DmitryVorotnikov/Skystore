@@ -14,8 +14,12 @@ class Product(models.Model):
     creation_date = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
     last_modification_date = models.DateTimeField(auto_now=True, verbose_name='Дата последнего изменения')
 
-    owner_product = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT,
-                                      verbose_name='Создатель продукта', **NULLABLE)
+    owner_product = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.PROTECT,
+        verbose_name='Создатель продукта',
+        **NULLABLE
+    )
 
     is_published = models.BooleanField(default=False, verbose_name='Признак публикации')
 
@@ -67,7 +71,12 @@ class Article(models.Model):
 
 
 class Version(models.Model):
-    product = models.ForeignKey('Product', on_delete=models.CASCADE, verbose_name='Продукт', related_name='versions')
+    product = models.ForeignKey(
+        'Product',
+        on_delete=models.CASCADE,
+        verbose_name='Продукт',
+        related_name='versions'
+    )
     version_number = models.CharField(max_length=50, verbose_name='Номер версии')
     name = models.CharField(max_length=150, verbose_name='Название версии')
     is_active = models.BooleanField(default=False, verbose_name='Признак текущей версии')
