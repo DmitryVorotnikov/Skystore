@@ -8,3 +8,5 @@ crispy-bootstrap5
 redis
 python-dotenv
 requests
+flake8
+flake8-html
