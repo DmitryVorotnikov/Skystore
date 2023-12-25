@@ -2,6 +2,18 @@ from django import forms
 
 from catalog.models import Product, Version
 
+STOP_LIST = [
+    'казино',
+    'криптовалюта',
+    'крипта',
+    'биржа',
+    'дешево',
+    'бесплатно',
+    'обман',
+    'полиция',
+    'радар'
+]
+
 
 class StyleFormMixin():
     def __init__(self, *args, **kwargs):
@@ -18,19 +30,7 @@ class ProductForUserForm(StyleFormMixin, forms.ModelForm):
     def clean_text(self, field_name):
         cleaned_data = self.cleaned_data[field_name].lower()
 
-        stoplist = [
-            'казино',
-            'криптовалюта',
-            'крипта',
-            'биржа',
-            'дешево',
-            'бесплатно',
-            'обман',
-            'полиция',
-            'радар'
-        ]
-
-        for word in stoplist:
+        for word in STOP_LIST:
             if word in cleaned_data:
                 raise forms.ValidationError(f'{field_name.capitalize()} продукта не допустимо!')
             else:
@@ -59,19 +59,7 @@ class ProductForManagerForm(StyleFormMixin, forms.ModelForm):
     def clean_text(self, field_name):
         cleaned_data = self.cleaned_data[field_name].lower()
 
-        stoplist = [
-            'казино',
-            'криптовалюта',
-            'крипта',
-            'биржа',
-            'дешево',
-            'бесплатно',
-            'обман',
-            'полиция',
-            'радар'
-        ]
-
-        for word in stoplist:
+        for word in STOP_LIST:
             if word in cleaned_data:
                 raise forms.ValidationError(f'{field_name.capitalize()} продукта не допустимо!')
             else:
