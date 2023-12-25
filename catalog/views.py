@@ -1,8 +1,6 @@
-from django.conf import settings
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
-from django.core.cache import cache
 from django.forms import inlineformset_factory
-from django.http import Http404
+from django.http import Http404, HttpResponseForbidden
 from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, TemplateView, DetailView, CreateView, UpdateView, DeleteView
 from pytils.translit import slugify
@@ -137,6 +135,7 @@ class ProductCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView)
     def get_context_data(self, **kwargs):
         context_data = super().get_context_data(**kwargs)
 
+        # Формсет
         VersionFormset = inlineformset_factory(Product, Version, form=VersionForm, extra=1)
         if self.request.method == 'POST':
             context_data['formset'] = VersionFormset(self.request.POST, self.request.FILES)
@@ -174,9 +173,9 @@ class ProductUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView)
         if self.request.user.is_staff:
             return self.object
 
-        # Вызывает ошибку 404 если текущий пользователь не владелец продукта.
+        # Вызывает ошибку если текущий пользователь не владелец продукта.
         if self.object.owner_product != self.request.user:
-            raise Http404
+            raise HttpResponseForbidden
 
         return self.object
 
@@ -194,6 +193,7 @@ class ProductUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView)
     def get_context_data(self, **kwargs):
         context_data = super().get_context_data(**kwargs)
 
+        # Формсет
         VersionFormset = inlineformset_factory(Product, Version, form=VersionForm, extra=1)
         if self.request.method == 'POST':
             context_data['formset'] = VersionFormset(self.request.POST, instance=self.object)
@@ -230,6 +230,6 @@ class ProductDeleteView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView)
 
         # Вызывает ошибку 404 если текущий пользователь не владелец продукта.
         if self.object.owner_product != self.request.user:
-            raise Http404
+            raise HttpResponseForbidden
 
         return self.object

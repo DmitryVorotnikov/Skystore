@@ -5,14 +5,14 @@ from catalog.models import Category
 
 
 def get_cached_categories():
-    '''
+    """
     Кеширование списка категории на home-page.
-    '''
+    """
     if settings.CACHE_ENABLED:
         key = f'category_list'
         subjects = cache.get(key)
         if subjects is None:
-            cache_timeout = 60 * 2  # Время жизни кеша, в секундах
+            cache_timeout = 60 * 3  # Время жизни кеша, в секундах
             subjects = Category.objects.all()
             cache.set(key, subjects, cache_timeout)
     else:
