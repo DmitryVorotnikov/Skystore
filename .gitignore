@@ -2,4 +2,7 @@
 /env/
 .env
 .idea
-__pycache__
+__pychache__
+/db.sqlite3
+/.coverage
+/celerybeat-schedule.db
